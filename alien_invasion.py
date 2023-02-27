@@ -13,6 +13,10 @@ def __init__(self):
     self.screen = pygame.display.set_mode((1200, 800))
     pygame.display.set_caption("Alien Invasion")
 
+    '''set background color'''
+    self.bg_color = (230, 230, 230)
+
+
 '''Start the main loop for the day'''
 def run_game(self):
         while True:
@@ -21,6 +25,9 @@ def run_game(self):
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+            '''redraw screen during each pass through the loop'''
+            self.screen.fill(self.bg_color)
+
             '''Make the most recently drawn screen visible'''
             pygame.display.flip()
 
@@ -28,5 +35,7 @@ if __name__ == '__main__':
      '''Make a game instance, and run the game'''
      ai = AlienInvasion()
      ai.run_game()
+    
+
 
 
