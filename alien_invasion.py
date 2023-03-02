@@ -6,6 +6,7 @@ import pygame
 
 from settings import Settings
 from game_stats import GameStats
+from scoreboard import Scoreboard
 from button import Button
 from ship import Ship
 from bullet import Bullet
@@ -155,6 +156,9 @@ class AlienInvasion:
         '''start a new game when the player clicks play'''
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.stats.game_active:
+            #reset game settings
+            self.settings.initialize_dynamic_settings()
+
             #reset the game statistics
             self.stats.reset_stats()
             self.stats.game_active = True
